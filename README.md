@@ -3,7 +3,7 @@ An SPA blog with a ASP.NET Core WebAPI backend and an Angular 7 front-end.
 
 ## Philosophy
 ### Simplicity
-It's a blog, not a CMS. Will have support for core blogging functionality including RSS, an externally accessible API, and customisable user profiles. With that said...
+It's a blog, not a CMS. A Minimum Viable Product (MVP) approach will ensure that it works with *just enough* to get running, with more flashy features added over time. Will have support for core blogging functionality including RSS, an externally accessible API, and customisable user profiles. With that said...
 
 ### Extensibility
 Additional features should be easy to add, allowing administrators to customise their blog as they see fit.
