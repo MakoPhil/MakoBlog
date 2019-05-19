@@ -286,3 +286,16 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Firefox Debug Profile
+.vscode/firefox_debug_profile
+
+# compiled output
+MakoBlog/obj
+MakoBlog/ClientApp/dist
+MakoBlog/ClientApp/dist-server
+MakoBlog/ClientApp/tmp
+MakoBlog/ClientApp/out-tsc
+
+# dependencies
+MakoBlog/ClientApp/node_modules
