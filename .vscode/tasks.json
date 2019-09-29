@@ -7,9 +7,47 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/MakoBlog/MakoBlog.csproj"
+                "${workspaceFolder}/MakoBlog.sln"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-client",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Client/MakoBlog/MakoBlog.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-server",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Server/MakoBlogApi/MakoBlogApi.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run blazor",
+            "command": "dotnet",
+            "type": "shell",
+            "dependsOn": [
+                "build-client"
+            ],
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/Client/MakoBlog",
+                "--configuration",
+                "Debug"
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ]
         },
         {
             "label": "test",
