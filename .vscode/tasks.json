@@ -7,59 +7,37 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/MakoBlog.sln"
+                "${workspaceFolder}/src/Client/MakoBlog/MakoBlog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build-client",
+            "label": "publish",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
-                "${workspaceFolder}/Client/MakoBlog/MakoBlog.csproj"
+                "publish",
+                "${workspaceFolder}/src/Client/MakoBlog/MakoBlog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build-server",
+            "label": "watch",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
-                "${workspaceFolder}/Server/MakoBlogApi/MakoBlogApi.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "run blazor",
-            "command": "dotnet",
-            "type": "shell",
-            "dependsOn": [
-                "build-client"
-            ],
-            "args": [
+                "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Client/MakoBlog",
-                "--configuration",
-                "Debug"
+                "${workspaceFolder}/src/Client/MakoBlog/MakoBlog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": [
-                "$msCompile"
-            ]
-        },
-        {
-            "label": "test",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "test"
-            ],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
+            "problemMatcher": "$msCompile"
         }
     ]
 }

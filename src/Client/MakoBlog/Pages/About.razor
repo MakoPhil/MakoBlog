@@ -1,0 +1,19 @@
+@page "/about"
+
+@inject HttpClient httpClient
+
+@if (about != null)
+{
+	<h1>@about.Title</h1>
+	<p>@about.Body</p>
+}
+
+@code {
+	private AboutModel about;
+
+	protected override async Task OnInitializedAsync()
+	{
+		about = await httpClient.GetFromJsonAsync<AboutModel>("about.json")
+		.ConfigureAwait(false);
+	}
+}

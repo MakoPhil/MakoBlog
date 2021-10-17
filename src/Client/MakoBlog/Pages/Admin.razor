@@ -1,0 +1,11 @@
+@page "/admin"
+
+<h1>Administration</h1>
+<h2>Using MakoBlog</h2>
+<p>Configurable files are JSON formatted and live in <code>src/Client/MakoBlog/wwwroot</code>.</p>
+<p>Edit site configuration with <code>settings.json</code>.</p>
+<p>Configure the <a href="/about">about</a> page with <code>about.json</code>.</p>
+<p>Write posts in <code>posts.json</code>. Use the datetime below to add a timestamp to posts.</p>
+
+<h2>Current datetime in ISO-8601</h2>
+<code>@DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")</code>
