@@ -1,0 +1,13 @@
+@inject BlogBasicsModel siteSettings
+
+<img src="images/Avatar.png">
+<h3 class="uk-card-title uk-margin-remove-bottom">@siteSettings.BlogOwner</h3>
+<p class="uk-text-meta uk-margin-remove-top">@tagline()</p>
+
+@code {
+	private string tagline()
+	{
+		var rdm = new Random();
+		return siteSettings.BlogTaglines[rdm.Next(siteSettings.BlogTaglines.Count())];
+	}
+}
