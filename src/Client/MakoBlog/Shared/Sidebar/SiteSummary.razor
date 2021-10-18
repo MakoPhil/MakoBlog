@@ -2,7 +2,9 @@
 
 <img src="images/Avatar.png">
 <h3 class="uk-card-title uk-margin-remove-bottom">@siteSettings.BlogOwner</h3>
-<p class="uk-text-meta uk-margin-remove-top">@tagline()</p>
+<div class="uk-text-meta uk-margin-remove-top">
+	<Markdown Text="@tagline()" />
+</div>
 
 @code {
 	private string tagline()
