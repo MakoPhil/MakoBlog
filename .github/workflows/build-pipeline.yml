@@ -15,7 +15,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    if: ${{ env.CAN_BUILD == true }}
+    if: ${{ github.env.CAN_BUILD == true }}
 
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +45,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ success() && env.CAN_TEST == true }}
+    if: ${{ success() && github.env.CAN_TEST == true }}
 
     steps:
       - uses: actions/checkout@v2
