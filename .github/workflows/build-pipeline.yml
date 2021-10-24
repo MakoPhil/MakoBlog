@@ -15,7 +15,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    if: ${{ canBuild }}
+    if: canBuild
 
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +45,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ success() && canTest }}
+    if: success() && canTest
 
     steps:
       - uses: actions/checkout@v2
