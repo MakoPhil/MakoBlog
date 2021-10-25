@@ -1,4 +1,4 @@
-name: MakoDev Build Pipeline
+name: MakoBlog Build Pipeline
 
 on:
   push:
