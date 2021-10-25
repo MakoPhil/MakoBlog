@@ -18,7 +18,7 @@ jobs:
       - name: Download Published Client Artefact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: "MakoBlog Build Pipeline"
+          workflow: "build-pipeline.yml"
           workflow_conclusion: success
           name: frontend-published
           path: "src/"
