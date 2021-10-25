@@ -1,0 +1,39 @@
+name: SSH Deploy to Test
+
+on:
+  workflow_run:
+    workflows: ["MakoBlog Build Pipeline"]
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Published Client Artefact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: "MakoBlog Build Pipeline"
+          workflow_conclusion: success
+          name: frontend_published
+          path: "src/"
+          
+      - name: Clear destination directory
+        uses: fifsky/ssh-action@v0.0.6
+        with:
+          command: 'rm -r ${{ secrets.DEPLOY_DIRECTORY }}'
+          host: ${{ secrets.DEPLOY_HOST }}
+          user: ${{ secrets.DEPLOY_USER }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+      - name: SCP Files Action
+        uses: a-was/scp-files-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          user: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          source: 'src/Client/MakoBlog/bin/Release/net5.0/publish/wwwroot'
+          destination: ${{ secrets.DEPLOY_DIRECTORY }}
