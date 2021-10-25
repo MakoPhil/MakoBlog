@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  CAN_BUILD: ${{ true }}
+  CAN_BUILD: true
   CAN_TEST: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
