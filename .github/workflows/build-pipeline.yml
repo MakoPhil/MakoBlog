@@ -8,14 +8,14 @@ on:
   workflow_dispatch:
 
 env:
-  CAN_BUILD: true
+  CAN_BUILD: 1
   CAN_TEST: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    if: ${{ github.env.CAN_BUILD }}
+    if: ${{ !!+github.env.CAN_BUILD }}
 
     steps:
       - uses: actions/checkout@v2
