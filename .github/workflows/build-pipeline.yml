@@ -19,7 +19,7 @@ jobs:
       - name: Show environment according to shell
         run: echo Can build? $CAN_BUILD
       - name: Show environment according to GitHub
-        run: echo Can build? ${{ github.env.CAN_BUILD }}
+        run: echo Can build? ${{ env.CAN_BUILD }}
   build:
     name: Build
     runs-on: ubuntu-latest
