@@ -89,7 +89,7 @@ jobs:
           path: src/
 
       - name: Publish Frontend
-        run: dotnet publish --no-build --verbosity normal --configuration Release --runtime linux-x64 --self-contained
+        run: dotnet publish --no-build --verbosity normal --configuration Release --runtime linux-x64 --self-contained true -p:BlazorEnableCompression=false
         working-directory: src/Client/MakoBlog/
 
       - name: Upload Frontend Published Artefact
