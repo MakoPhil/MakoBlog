@@ -28,7 +28,7 @@ jobs:
       - name: Clear destination directory
         uses: fifsky/ssh-action@v0.0.6
         with:
-          command: "rm -r ${{ secrets.DEPLOY_DIRECTORY }}"
+          command: "rm -r ${{ secrets.DEPLOY_DIRECTORY }}/*"
           host: ${{ secrets.DEPLOY_HOST }}
           user: ${{ secrets.DEPLOY_USER }}
           port: ${{ secrets.DEPLOY_PORT }}
@@ -41,5 +41,5 @@ jobs:
           port: ${{ secrets.DEPLOY_PORT }}
           user: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: "src/Client/MakoBlog/bin/Release/net5.0/publish/wwwroot"
+          source: "src/"
           destination: ${{ secrets.DEPLOY_DIRECTORY }}
