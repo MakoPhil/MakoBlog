@@ -23,7 +23,7 @@ jobs:
           workflow: "build-pipeline.yml"
           workflow_conclusion: success
           name: frontend-published
-          path: '${{ GITHUB_WORKSPACE }}/deploy/'
+          path: '${{ github.workspace }}/deploy/'
 
       - name: Clear destination directory
         uses: fifsky/ssh-action@v0.0.6
@@ -41,5 +41,5 @@ jobs:
           port: ${{ secrets.DEPLOY_PORT }}
           user: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: '${{ GITHUB_WORKSPACE }}/deploy/*'
+          source: '${{ github.workspace }}/deploy/*'
           destination: ${{ secrets.DEPLOY_DIRECTORY }}
