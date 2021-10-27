@@ -15,6 +15,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: Test
+    env:
+      DEPLOY_SOURCE: '${{ github.workspace }}/deploy'
 
     steps:
       - name: Download Published Client Artefact
@@ -23,7 +25,7 @@ jobs:
           workflow: "build-pipeline.yml"
           workflow_conclusion: success
           name: frontend-published
-          path: '${{ github.workspace }}/deploy/'
+          path: ${{ env.DEPLOY_SOURCE }}
 
       - name: Clear destination directory
         uses: fifsky/ssh-action@v0.0.6
@@ -41,5 +43,5 @@ jobs:
           port: ${{ secrets.DEPLOY_PORT }}
           user: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: ${{ format('{0}/deploy/*', github.workspace) }}
+          source: ${{ env.DEPLOY_SOURCE }}/*
           destination: ${{ secrets.DEPLOY_DIRECTORY }}
