@@ -15,6 +15,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: Test
+    env:
+      DEPLOY_SOURCE: "${{ github.workspace }}/deploy"
 
     steps:
       - name: Download Published Client Artefact
@@ -25,6 +27,8 @@ jobs:
           name: frontend-published
           path: ${{ env.DEPLOY_SOURCE }}
 
+      - run: ls ${{ env.DEPLOY_SOURCE }} -al
+
       - name: Clear destination directory
         uses: fifsky/ssh-action@v0.0.6
         with:
@@ -33,8 +37,6 @@ jobs:
           user: ${{ secrets.DEPLOY_USER }}
           port: ${{ secrets.DEPLOY_PORT }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-
-      - run: ls ${{ env.DEPLOY_SOURCE }} -al
 
       - name: SCP Files Action
         uses: a-was/scp-files-action@v1
