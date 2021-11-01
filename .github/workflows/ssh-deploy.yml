@@ -47,3 +47,4 @@ jobs:
           port: ${{ secrets.DEPLOY_PORT }}
           source: ${{ env.DEPLOY_SOURCE }}/*
           target: ${{ secrets.DEPLOY_DIRECTORY }}
+          strip_components: 3
