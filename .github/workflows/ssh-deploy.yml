@@ -1,4 +1,4 @@
-name: SSH Deploy to Test
+name: SSH Deploy
 
 on:
   workflow_run:
@@ -11,10 +11,12 @@ on:
 
 jobs:
   deploy-test:
+    name: "Deploy to Test"
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: Test
+      url: https://blog-dev.makodev.com.au
     env:
       DEPLOY_SOURCE: "${{ github.workspace }}/deploy"
 
@@ -50,10 +52,12 @@ jobs:
           strip_components: 3
 
   deploy-prod:
+    name: "Deploy to Prod"
     runs-on: ubuntu-latest
     needs: deploy-test
     environment:
       name: Prod
+      url: https://blog.makodev.com.au
     env:
       DEPLOY_SOURCE: "${{ github.workspace }}/deploy"
 
