@@ -1,7 +1,7 @@
 {
 	"Posts": [
 		{
-			"Date": "2021-11-02T19:37:16.399Z",
+			"Date": "2021-11-02T09:37:16.399Z",
 			"Title": "Post #1: A Git Trick",
 			"Body": "Hello! I've started a new blog. For my first post I'm going to share a Git configuration trick that I often use to work around this dang ol' error message when trying to push a locally created branch to a remote repository:\n\n> fatal: The current branch <X> has no upstream branch.\n\nSet Git to always create the remote branch on push:\n\n```\ngit config --global push.default current\n```",
 			"Tags": ["Programming", "Git", "Tips", "Future Reference"]
