@@ -16,7 +16,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: Test
-      url: https://blog-dev.makodev.com.au
+      url: https://dev.rakhama.com
     env:
       DEPLOY_SOURCE: "${{ github.workspace }}/deploy"
 
@@ -57,7 +57,7 @@ jobs:
     needs: deploy-test
     environment:
       name: Prod
-      url: https://blog.makodev.com.au
+      url: https://rakhama.com
     env:
       DEPLOY_SOURCE: "${{ github.workspace }}/deploy"
 
