@@ -31,7 +31,7 @@ Test Driven Development helps to mitigate bugs and regressions, as well as encou
 MakoBlog is built in [VS Code](https://code.visualstudio.com/), Microsoft's excellent lightweight, cross-platform, open source development environment. My machines run on [Manjaro](https://manjaro.org). Is pr'y excellent!
 
 ### Prerequisites
-#### .NET 5
+#### .NET 6
 Instructions to install .NET can be found [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux). For Arch and its derivatives including Manjaro, it's in the [Community repos](https://archlinux.org/packages/community/x86_64/dotnet-sdk/).
 
 ### Debugging
