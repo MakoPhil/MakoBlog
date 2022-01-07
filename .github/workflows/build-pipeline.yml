@@ -96,4 +96,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: frontend-published
-          path: src/Client/MakoBlog/bin/Release/net5.0/publish/wwwroot
+          path: src/Client/MakoBlog/bin/Release/net6.0/publish/wwwroot
