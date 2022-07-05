@@ -3,7 +3,7 @@ name: MakoBlog Frontend Build Pipeline
 env:
   CODE_ROOT: src
   FRONTEND_SLN: MakoBlogFrontend.sln
-  FRONTEND_PROJ: ${{ env.CODE_ROOT }}/Client/MakoBlogUI/
+  FRONTEND_PROJ: src/Client/MakoBlogUI/
 
 on:
   push:
