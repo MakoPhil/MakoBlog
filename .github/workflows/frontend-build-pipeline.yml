@@ -8,16 +8,16 @@ env:
 on:
   push:
     branches: [main]
-    # paths:
-    #   - "${{ env.CODE_ROOT }}/Client/**"
-    #   - "${{ env.CODE_ROOT }}/Common/**"
-    #   - "${{ env.CODE_ROOT }}/${{ env.FRONTEND_SLN }}"
+    paths:
+      - "${{ env.CODE_ROOT }}/Client/**"
+      - "${{ env.CODE_ROOT }}/Common/**"
+      - "${{ env.CODE_ROOT }}/${{ env.FRONTEND_SLN }}"
   pull_request:
     branches: [main]
-    # paths:
-    #   - "${{ env.CODE_ROOT }}/Client/**"
-    #   - "${{ env.CODE_ROOT }}/Common/**"
-    #   - "${{ env.CODE_ROOT }}/${{ env.FRONTEND_SLN }}"
+    paths:
+      - "${{ env.CODE_ROOT }}/Client/**"
+      - "${{ env.CODE_ROOT }}/Common/**"
+      - "${{ env.CODE_ROOT }}/${{ env.FRONTEND_SLN }}"
   workflow_dispatch:
 
 jobs:
