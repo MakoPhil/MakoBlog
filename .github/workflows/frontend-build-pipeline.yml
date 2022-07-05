@@ -8,16 +8,16 @@ env:
 on:
   push:
     branches: [main]
-    paths:
-      - "$CODE_ROOT/Client/**"
-      - "$CODE_ROOT/Common/**"
-      - "$CODE_ROOT/$FRONTEND_SLN"
+    # paths:
+    #   - "$CODE_ROOT/Client/**"
+    #   - "$CODE_ROOT/Common/**"
+    #   - "$CODE_ROOT/$FRONTEND_SLN"
   pull_request:
     branches: [main]
-    paths:
-      - "$CODE_ROOT/Client/**"
-      - "$CODE_ROOT/Common/**"
-      - "$CODE_ROOT/$FRONTEND_SLN"
+    # paths:
+    #   - "$CODE_ROOT/Client/**"
+    #   - "$CODE_ROOT/Common/**"
+    #   - "$CODE_ROOT/$FRONTEND_SLN"
   workflow_dispatch:
 
 jobs:
