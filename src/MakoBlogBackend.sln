@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{AEF36379-461E-4809-8B90-5723B62672A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakoBlogCommon", "Common\MakoBlogCommon\MakoBlogCommon.csproj", "{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{0337396D-0269-413F-8E88-2F9746A62BA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakoBlogAPI", "Server\MakoBlogAPI\MakoBlogAPI.csproj", "{576145FC-6DE7-4D59-A8E6-8A88A125D435}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProviders", "{9B775AEF-B44F-4D66-8A68-FEBE2DAF8685}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviders.Common", "Server\DataProviders\DataProviders.Common\DataProviders.Common.csproj", "{B22949D4-A5CD-4F85-BE83-A3073E9BBD67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonDataProvider", "Server\DataProviders\JsonDataProvider\JsonDataProvider.csproj", "{8D524A02-D8D5-4493-B290-02A86858FC14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{576145FC-6DE7-4D59-A8E6-8A88A125D435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{576145FC-6DE7-4D59-A8E6-8A88A125D435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{576145FC-6DE7-4D59-A8E6-8A88A125D435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{576145FC-6DE7-4D59-A8E6-8A88A125D435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22949D4-A5CD-4F85-BE83-A3073E9BBD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22949D4-A5CD-4F85-BE83-A3073E9BBD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22949D4-A5CD-4F85-BE83-A3073E9BBD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22949D4-A5CD-4F85-BE83-A3073E9BBD67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D524A02-D8D5-4493-B290-02A86858FC14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D524A02-D8D5-4493-B290-02A86858FC14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D524A02-D8D5-4493-B290-02A86858FC14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D524A02-D8D5-4493-B290-02A86858FC14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86D4301F-6DDC-43F1-A2C9-6E85DBF7B2CA} = {AEF36379-461E-4809-8B90-5723B62672A9}
+		{576145FC-6DE7-4D59-A8E6-8A88A125D435} = {0337396D-0269-413F-8E88-2F9746A62BA0}
+		{9B775AEF-B44F-4D66-8A68-FEBE2DAF8685} = {0337396D-0269-413F-8E88-2F9746A62BA0}
+		{B22949D4-A5CD-4F85-BE83-A3073E9BBD67} = {9B775AEF-B44F-4D66-8A68-FEBE2DAF8685}
+		{8D524A02-D8D5-4493-B290-02A86858FC14} = {9B775AEF-B44F-4D66-8A68-FEBE2DAF8685}
+	EndGlobalSection
+EndGlobal

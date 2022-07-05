@@ -1,10 +1,23 @@
-name: MakoBlog Build Pipeline
+name: MakoBlog Frontend Build Pipeline
+
+env:
+  CODE_ROOT: src
+  FRONTEND_SLN: MakoBlogFrontend.sln
+  FRONTEND_PROJ: $CODE_ROOT/Client/MakoBlogUI/
 
 on:
   push:
     branches: [main]
+    paths:
+      - "$CODE_ROOT/Client/**"
+      - "$CODE_ROOT/Common/**"
+      - "$CODE_ROOT/$FRONTEND_SLN"
   pull_request:
     branches: [main]
+    paths:
+      - "$CODE_ROOT/Client/**"
+      - "$CODE_ROOT/Common/**"
+      - "$CODE_ROOT/$FRONTEND_SLN"
   workflow_dispatch:
 
 jobs:
@@ -21,20 +34,22 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
-        working-directory: src/
+        run: dotnet restore $FRONTEND_SLN
+        working-directory: $CODE_ROOT/
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
-        working-directory: src/
+        run: dotnet build $FRONTEND_SLN --no-restore --configuration Release
+        working-directory: $CODE_ROOT/
 
       - name: Upload Build Artefact
         uses: actions/upload-artifact@v2
         with:
           name: build-artefact
           path: |
-            src/**/bin/
-            src/**/obj/
+            $CODE_ROOT/Client/**/bin/
+            $CODE_ROOT/Client/**/obj/
+            $CODE_ROOT/Common/**/bin/
+            $CODE_ROOT/Common/**/obj/
 
   test:
     name: Test
@@ -51,18 +66,18 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
-        working-directory: src/
+        run: dotnet restore $FRONTEND_SLN
+        working-directory: $CODE_ROOT/
 
       - name: Download Build Artefact
         uses: actions/download-artifact@v2
         with:
           name: build-artefact
-          path: src/
+          path: $CODE_ROOT/
 
       - name: Unit Tests
-        run: dotnet test --no-build --verbosity normal --configuration Release
-        working-directory: src/
+        run: dotnet test $FRONTEND_SLN --no-build --verbosity normal --configuration Release
+        working-directory: $CODE_ROOT/
 
   publish:
     name: Publish Frontend
@@ -79,21 +94,21 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
-        working-directory: src/
+        run: dotnet restore $FRONTEND_SLN
+        working-directory: $CODE_ROOT/
 
       - name: Download Build Artefact
         uses: actions/download-artifact@v2
         with:
           name: build-artefact
-          path: src/
+          path: $CODE_ROOT/
 
       - name: Publish Frontend
         run: dotnet publish --no-build --verbosity normal --configuration Release --runtime linux-x64 --self-contained true -p:BlazorEnableCompression=false
-        working-directory: src/Client/MakoBlog/
+        working-directory: $FRONTEND_PROJ/
 
       - name: Upload Frontend Published Artefact
         uses: actions/upload-artifact@v2
         with:
           name: frontend-published
-          path: src/Client/MakoBlog/bin/Release/net6.0/publish/wwwroot
+          path: $FRONTEND_PROJ/bin/Release/net6.0/publish/wwwroot
