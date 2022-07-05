@@ -1,0 +1,13 @@
+@namespace MakoBlog.Client.MakoBlogUi.Shared.Sidebar
+
+<SiteSummaryComponent BlogOwner="@BlogOwner" BlogTagline="@BlogTagline" BlogAvatar="@BlogAvatar" />
+<NavigationComponent />
+
+@code {
+	[Parameter]
+	public string BlogOwner { get; set; }
+	[Parameter]
+	public string BlogTagline { get; set; }
+	[Parameter]
+	public string BlogAvatar { get; set; }
+}

@@ -1,0 +1,35 @@
+@namespace MakoBlog.Client.MakoBlogUi.Shared.Posts
+
+<div class="uk-card uk-card-default uk-margin-medium-bottom">
+	<div class="uk-card-body">
+		<article class="uk-article">
+			<h1 class="uk-article-title"><a class="uk-link-reset" href="">@Post.Title</a></h1>
+			<p class="uk-article-meta">
+			<ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+				<li>@Post.PublishedDate.InZone(DateTimeZoneProviders.Tzdb.GetSystemDefault()).LocalDateTime.ToString("g",
+					null)
+				</li>
+				@foreach (var tag in Post.Tags)
+					{
+					<li>@tag</li>
+					}
+			</ul>
+			</p>
+			@* <p class="uk-text-lead">Lead paragraph</p> *@
+			<MarkdownRenderer Text="@Post.Body" />
+			@* <div class="uk-grid-small uk-child-width-auto" uk-grid>
+				<div>
+				<a class="uk-button uk-button-text" href="#">Read more</a>
+				</div>
+				<div>
+				<a class="uk-button uk-button-text" href="#"># Comments</a>
+				</div>
+				</div> *@
+		</article>
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public Post Post { get; set; }
+}

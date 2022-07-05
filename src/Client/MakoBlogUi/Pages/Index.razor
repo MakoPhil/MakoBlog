@@ -1,0 +1,25 @@
+﻿@namespace MakoBlog.Client.MakoBlogUi.Pages
+@page "/"
+
+@inject RestClient restClient
+@inject IPostService postService
+
+@if (posts != null)
+{
+	@foreach (var post in posts)
+	{
+		<ArticleComponent Post="post" />
+	}
+}
+
+@code {
+	private IEnumerable<Post> posts;
+
+	[Parameter, SupplyParameterFromQuery(Name = "Page")]
+	public int? pageNumber { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		posts = await postService.GetPosts(pageNumber ?? 1);
+	}
+}
