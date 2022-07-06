@@ -1,8 +1,8 @@
-name: SSH Deploy
+name: SSH Deploy Frontend
 
 on:
   workflow_run:
-    workflows: ["MakoBlog Build Pipeline"]
+    workflows: ["MakoBlog Frontend Build Pipeline"]
     branches: [main]
     types:
       - completed
@@ -11,7 +11,7 @@ on:
 
 jobs:
   deploy-test:
-    name: "Deploy to Test"
+    name: "Deploy Frontend to Test"
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
@@ -24,7 +24,7 @@ jobs:
       - name: Download Published Client Artefact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: "build-pipeline.yml"
+          workflow: "frontend-build-pipeline.yml"
           workflow_conclusion: success
           name: frontend-published
           path: ${{ env.DEPLOY_SOURCE }}
@@ -65,7 +65,7 @@ jobs:
       - name: Download Published Client Artefact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: "build-pipeline.yml"
+          workflow: "frontend-build-pipeline.yml"
           workflow_conclusion: success
           name: frontend-published
           path: ${{ env.DEPLOY_SOURCE }}
