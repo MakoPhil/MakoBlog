@@ -11,13 +11,13 @@ on:
     paths:
       - "src/Client/**"
       - "src/Common/**"
-      - "src/${{ env.FRONTEND_SLN }}"
+      - "src/MakoBlogFrontend.sln"
   pull_request:
     branches: [main]
     paths:
       - "src/Client/**"
       - "src/Common/**"
-      - "src/${{ env.FRONTEND_SLN }}"
+      - "src/MakoBlogFrontend.sln"
   workflow_dispatch:
 
 jobs:
