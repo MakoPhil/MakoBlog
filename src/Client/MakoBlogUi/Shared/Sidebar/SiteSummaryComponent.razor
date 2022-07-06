@@ -1,0 +1,18 @@
+@namespace MakoBlog.Client.MakoBlogUi.Shared.Sidebar
+
+<img src="images/@BlogAvatar">
+<h3 class="uk-card-title uk-margin-remove-bottom">@BlogOwner</h3>
+<div class="uk-text-meta uk-margin-remove-top">
+	<MarkdownRenderer Text="@BlogTagline" />
+</div>
+
+@code {
+	[Parameter]
+	public string BlogOwner { get; set; }
+
+	[Parameter]
+	public string BlogTagline { get; set; }
+
+	[Parameter]
+	public string BlogAvatar { get; set; }
+}

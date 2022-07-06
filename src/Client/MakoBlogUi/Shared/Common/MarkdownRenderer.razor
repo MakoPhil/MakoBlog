@@ -1,0 +1,9 @@
+@namespace MakoBlog.Client.MakoBlogUi.Shared.Common
+
+@((MarkupString)Markdig.Markdown.ToHtml(Text))
+
+@code
+{
+	[Parameter]
+	public string Text { get; set; }
+}

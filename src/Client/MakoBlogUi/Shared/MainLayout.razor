@@ -1,0 +1,36 @@
+﻿@namespace MakoBlog.Client.MakoBlogUi.Shared
+
+@inject ISystemService SystemService
+
+@inherits LayoutComponentBase
+
+<div class="uk-container">
+    <SiteHeaderComponent BlogName="@BlogName" />
+
+    <div uk-grid>
+        <div class="uk-width-expand@m main">
+            @Body
+        </div>
+        <div class="uk-width-1-4@m">
+            <SidebarComponent BlogOwner="@BlogOwner" BlogTagline="@BlogTagline" BlogAvatar="@BlogAvatar" />
+        </div>
+    </div>
+</div>
+
+@code {
+    public string BlogName { get; private set; } = "Fu";
+    public string BlogOwner { get; private set; } = "Bar";
+    public string BlogTagline { get; private set; } = "SEP";
+    public string BlogAvatar { get; private set; } = "Avatar.png";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var systemInfo = await SystemService.LoadSystemInformation();
+        var rdm = new Random();
+
+        BlogName = systemInfo.BlogName;
+        BlogOwner = systemInfo.BlogOwner;
+        BlogTagline = systemInfo.BlogTaglines.Any() ? systemInfo.BlogTaglines[rdm.Next(systemInfo.BlogTaglines.Count())] :
+        string.Empty;
+    }
+}

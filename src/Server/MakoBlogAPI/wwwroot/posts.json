@@ -1,0 +1,12 @@
+{
+	"Posts": [
+		{
+			"PublishedDate": "2021-10-17T05:37:16.399Z",
+			"Title": "A First Post",
+			"Body": "This post serves as the first post to demonstrate how the `posts.json` file can be used to build up content.",
+			"Tags": [
+				"Miscellaneous"
+			]
+		}
+	]
+}

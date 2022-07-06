@@ -1,0 +1,12 @@
+@namespace MakoBlog.Client.MakoBlogUi.Shared.SiteHeader
+
+<nav uk-navbar class="uk-navbar-container uk-margin-medium-bottom">
+	<div class="uk-navbar-left">
+		<a class="uk-navbar-item uk-logo" href="/">@BlogName</a>
+	</div>
+</nav>
+
+@code {
+	[Parameter]
+	public string BlogName { get; set; }
+}
